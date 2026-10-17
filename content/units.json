@@ -1,0 +1,6 @@
+{
+  "_about": "The list of units the app can use. To add a unit: make content/unit-04.json (copy unit-03.json and change it), then add a line below. The LAST unit in the list is the one the app starts on.",
+  "units": [
+    { "file": "unit-03.json", "name": "Unit 3" }
+  ]
+}

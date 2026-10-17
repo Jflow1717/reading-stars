@@ -1,0 +1,35 @@
+{
+  "_about": [
+    "The single letters every unit uses: letter, keyword, sound.",
+    "emoji is the picture on the card. vowel: true colors the card differently.",
+    "say is only used until you record a real sound file. It is the robot voice's best guess at the sound.",
+    "x says /ks/ like at the end of fox. There is no q card on its own: q always comes with its buddy u (see the unit file)."
+  ],
+  "letters": [
+    { "letters": "a", "sound": "/ă/", "keyword": "apple",   "emoji": "🍎", "say": "aa",  "vowel": true },
+    { "letters": "b", "sound": "/b/", "keyword": "bat",     "emoji": "🦇", "say": "buh" },
+    { "letters": "c", "sound": "/k/", "keyword": "cat",     "emoji": "🐱", "say": "kuh" },
+    { "letters": "d", "sound": "/d/", "keyword": "dog",     "emoji": "🐶", "say": "duh" },
+    { "letters": "e", "sound": "/ĕ/", "keyword": "Ed",      "emoji": "👦", "say": "eh",  "vowel": true },
+    { "letters": "f", "sound": "/f/", "keyword": "fun",     "emoji": "🎉", "say": "fff" },
+    { "letters": "g", "sound": "/g/", "keyword": "game",    "emoji": "🎲", "say": "guh" },
+    { "letters": "h", "sound": "/h/", "keyword": "hat",     "emoji": "🎩", "say": "huh" },
+    { "letters": "i", "sound": "/ĭ/", "keyword": "itch",    "emoji": "🦟", "say": "ih",  "vowel": true },
+    { "letters": "j", "sound": "/j/", "keyword": "jug",     "emoji": "🫙", "say": "juh" },
+    { "letters": "k", "sound": "/k/", "keyword": "kite",    "emoji": "🪁", "say": "kuh" },
+    { "letters": "l", "sound": "/l/", "keyword": "lamp",    "emoji": "💡", "say": "lll" },
+    { "letters": "m", "sound": "/m/", "keyword": "man",     "emoji": "👨", "say": "mmm" },
+    { "letters": "n", "sound": "/n/", "keyword": "nut",     "emoji": "🥜", "say": "nnn" },
+    { "letters": "o", "sound": "/ŏ/", "keyword": "octopus", "emoji": "🐙", "say": "ah",  "vowel": true },
+    { "letters": "p", "sound": "/p/", "keyword": "pan",     "emoji": "🍳", "say": "puh" },
+    { "letters": "r", "sound": "/r/", "keyword": "rat",     "emoji": "🐀", "say": "rrr" },
+    { "letters": "s", "sound": "/s/", "keyword": "snake",   "emoji": "🐍", "say": "sss" },
+    { "letters": "t", "sound": "/t/", "keyword": "top",     "emoji": "🌀", "say": "tuh" },
+    { "letters": "u", "sound": "/ŭ/", "keyword": "up",      "emoji": "⬆️", "say": "uh",  "vowel": true },
+    { "letters": "v", "sound": "/v/", "keyword": "van",     "emoji": "🚐", "say": "vvv" },
+    { "letters": "w", "sound": "/w/", "keyword": "wind",    "emoji": "🌬️", "say": "wuh" },
+    { "letters": "x", "sound": "/ks/", "keyword": "fox",    "emoji": "🦊", "say": "ks" },
+    { "letters": "y", "sound": "/y/", "keyword": "yellow",  "emoji": "💛", "say": "yuh" },
+    { "letters": "z", "sound": "/z/", "keyword": "zebra",   "emoji": "🦓", "say": "zzz" }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "_about": [
+    "Unit 3 words, typed in from the school's Home Support Pack pages 30-38.",
+    "Each word lists its SOUNDS, one per tap. A digraph like sh, ch, th, wh or ck is ONE sound, and so is qu.",
+    "The sounds must spell the word when put together: fish = f + i + sh.",
+    "week 1 and week 2 match the homework weeks. week 0 means she learned it in an earlier unit.",
+    "Trick words are never tapped. Keep every old trick word here when you add a new unit, so the list grows."
+  ],
+  "unit": 3,
+  "title": "Unit 3",
+
+  "digraphs": [
+    { "letters": "wh", "sound": "/w/",  "keyword": "whistle", "emoji": "😗", "say": "wuh" },
+    { "letters": "ch", "sound": "/ch/", "keyword": "chin",    "emoji": "🤔", "say": "chuh" },
+    { "letters": "sh", "sound": "/sh/", "keyword": "ship",    "emoji": "🚢", "say": "shh" },
+    { "letters": "th", "sound": "/th/", "keyword": "thumb",   "emoji": "👍", "say": "thh" },
+    { "letters": "ck", "sound": "/k/",  "keyword": "sock",    "emoji": "🧦", "say": "kuh" },
+    { "letters": "qu", "sound": "/kw/", "keyword": "queen",   "emoji": "👑", "say": "kwuh", "buddy": true }
+  ],
+
+  "reviewWords": [
+    { "word": "log", "sounds": ["l", "o", "g"], "week": 1, "emoji": "🪵" },
+    { "word": "fog", "sounds": ["f", "o", "g"], "week": 1, "emoji": "🌫️" },
+    { "word": "sip", "sounds": ["s", "i", "p"], "week": 1, "emoji": "🥤" },
+    { "word": "yet", "sounds": ["y", "e", "t"], "week": 2 },
+    { "word": "tub", "sounds": ["t", "u", "b"], "week": 2, "emoji": "🛁" },
+    { "word": "pat", "sounds": ["p", "a", "t"], "week": 2, "emoji": "🤚" }
+  ],
+
+  "currentWords": [
+    { "word": "fish",  "sounds": ["f", "i", "sh"],  "week": 1, "emoji": "🐟" },
+    { "word": "math",  "sounds": ["m", "a", "th"],  "week": 1, "emoji": "➕" },
+    { "word": "chop",  "sounds": ["ch", "o", "p"],  "week": 1, "emoji": "🪓" },
+    { "word": "shop",  "sounds": ["sh", "o", "p"],  "week": 1, "emoji": "🏪" },
+    { "word": "cash",  "sounds": ["c", "a", "sh"],  "week": 1, "emoji": "💵" },
+    { "word": "pack",  "sounds": ["p", "a", "ck"],  "week": 1, "emoji": "🎒" },
+    { "word": "which", "sounds": ["wh", "i", "ch"], "week": 1 },
+    { "word": "that",  "sounds": ["th", "a", "t"],  "week": 1 },
+
+    { "word": "ship",  "sounds": ["sh", "i", "p"],  "week": 2, "emoji": "🚢" },
+    { "word": "deck",  "sounds": ["d", "e", "ck"],  "week": 2 },
+    { "word": "quick", "sounds": ["qu", "i", "ck"], "week": 2, "emoji": "⚡" },
+    { "word": "dish",  "sounds": ["d", "i", "sh"],  "week": 2, "emoji": "🍽️" },
+    { "word": "whiz",  "sounds": ["wh", "i", "z"],  "week": 2 },
+    { "word": "rich",  "sounds": ["r", "i", "ch"],  "week": 2, "emoji": "💰" },
+    { "word": "luck",  "sounds": ["l", "u", "ck"],  "week": 2, "emoji": "🍀" },
+    { "word": "bath",  "sounds": ["b", "a", "th"],  "week": 2, "emoji": "🛁" },
+    { "word": "rock",  "sounds": ["r", "o", "ck"],  "week": 2, "emoji": "🪨" },
+    { "word": "hush",  "sounds": ["h", "u", "sh"],  "week": 2, "emoji": "🤫" },
+    { "word": "chin",  "sounds": ["ch", "i", "n"],  "week": 2, "emoji": "🤔" },
+    { "word": "with",  "sounds": ["w", "i", "th"],  "week": 2 }
+  ],
+
+  "trickWords": [
+    { "word": "the", "week": 0 },
+    { "word": "a",   "week": 0 },
+    { "word": "and", "week": 0 },
+    { "word": "is",  "week": 0 },
+    { "word": "his", "week": 0 },
+
+    { "word": "as",   "week": 1 },
+    { "word": "has",  "week": 1 },
+    { "word": "to",   "week": 1 },
+    { "word": "into", "week": 1 },
+
+    { "word": "we",  "week": 2 },
+    { "word": "he",  "week": 2 },
+    { "word": "she", "week": 2 },
+    { "word": "be",  "week": 2 },
+    { "word": "me",  "week": 2 },
+    { "word": "or",  "week": 2 },
+    { "word": "for", "week": 2 }
+  ],
+
+  "sentences": [
+    { "text": "Which fish did Tom get?",                "week": 1 },
+    { "text": "Jack got in the tub and had a bath.",    "week": 1 },
+    { "text": "Chad hit his chin on the bed.",          "week": 1 },
+    { "text": "Dad let Beth pack the cash in the bag.", "week": 1 },
+    { "text": "Which quick cat got the six fish?",      "week": 1 },
+    { "text": "Did Dad get that at the shop?",          "week": 1 },
+    { "text": "He is quick with math.",                 "week": 2 }
+  ]
+}
