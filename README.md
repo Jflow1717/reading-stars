@@ -34,11 +34,15 @@ so she won't open it by accident). It shows:
 
 ## Getting it onto the tablet
 
-The tablet has to open the app from a secure (https) web address. That's what
-lets Chrome install it on the home screen, run it with no internet, and use the
-microphone. The free option is GitHub Pages, which Claude can set up for you.
-Then on the tablet: open the address in Chrome, tap ⋮, then **Add to Home screen**
-(or **Install app**).
+**The app's address: https://jflow1717.github.io/reading-stars/**
+
+On the tablet: open that address in Chrome, tap ⋮, then **Add to Home screen**
+(or **Install app**). After that she opens it from its ⭐ icon like any other app.
+
+It's hosted free on GitHub Pages from the `Jflow1717/reading-stars` repository.
+A secure (https) address is what lets Chrome install it, run it with no internet,
+and use the microphone. Changes to the files (new units, sound recordings) show up
+on the tablet after they're pushed to GitHub and the app is reopened while online.
 
 ## Recording the sounds
 
