@@ -33,8 +33,19 @@ const APP_FILES = [
   'icons/icon-512.png',
 ];
 
+// The sound files (sh, ch, a, b...) and letter names (a, b, c...) that come with the app
+const SOUND_NAMES = ['wh', 'ch', 'sh', 'th', 'ck', 'qu', ...'abcdefghijklmnoprstuvwxyz'];
+const SOUND_FILES = [
+  ...SOUND_NAMES.map((s) => `audio/sounds/${s}.m4a`),
+  ...'abcdefghijklmnopqrstuvwxyz'.split('').map((l) => `audio/names/${l}.m4a`),
+];
+
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(APP_FILES)));
+  event.waitUntil(caches.open(CACHE).then(async (cache) => {
+    await cache.addAll(APP_FILES);
+    // Sound files one at a time, so one missing file doesn't stop the rest
+    await Promise.all(SOUND_FILES.map((file) => cache.add(file).catch(() => {})));
+  }));
   self.skipWaiting();
 });
 

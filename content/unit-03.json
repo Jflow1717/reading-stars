@@ -10,12 +10,12 @@
   "title": "Unit 3",
 
   "digraphs": [
-    { "letters": "wh", "sound": "/w/",  "keyword": "whistle", "emoji": "😗", "say": "wuh" },
-    { "letters": "ch", "sound": "/ch/", "keyword": "chin",    "emoji": "🤔", "say": "chuh" },
-    { "letters": "sh", "sound": "/sh/", "keyword": "ship",    "emoji": "🚢", "say": "shh" },
-    { "letters": "th", "sound": "/th/", "keyword": "thumb",   "emoji": "👍", "say": "thh" },
-    { "letters": "ck", "sound": "/k/",  "keyword": "sock",    "emoji": "🧦", "say": "kuh" },
-    { "letters": "qu", "sound": "/kw/", "keyword": "queen",   "emoji": "👑", "say": "kwuh", "buddy": true }
+    { "letters": "wh", "sound": "/w/",  "keyword": "whistle", "emoji": "😗" },
+    { "letters": "ch", "sound": "/ch/", "keyword": "chin",    "emoji": "🤔" },
+    { "letters": "sh", "sound": "/sh/", "keyword": "ship",    "emoji": "🚢" },
+    { "letters": "th", "sound": "/th/", "keyword": "thumb",   "emoji": "👍" },
+    { "letters": "ck", "sound": "/k/",  "keyword": "sock",    "emoji": "🧦" },
+    { "letters": "qu", "sound": "/kw/", "keyword": "queen",   "emoji": "👑", "buddy": true }
   ],
 
   "reviewWords": [

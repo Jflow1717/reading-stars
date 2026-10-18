@@ -44,11 +44,13 @@ A secure (https) address is what lets Chrome install it, run it with no internet
 and use the microphone. Changes to the files (new units, sound recordings) show up
 on the tablet after they're pushed to GitHub and the app is reopened while online.
 
-## Recording the sounds
+## The sounds
 
-Until you record them, the built-in voice guesses at each sound, and the guesses are rough.
-See [RECORDING-SOUNDS.md](RECORDING-SOUNDS.md) for the list of 31 files and tips.
-Phone recordings (.m4a) work as they are.
+Every sound (sh, th, a, b...) plays from its own sound file in `audio/sounds/`. A tablet's
+built-in voice can read words, but it can't make a lone sound: asked for "th", it says
+the letters "T, H". The app comes with computer-made files that were checked to be the
+real sounds. You can replace any of them with your own voice:
+see [RECORDING-SOUNDS.md](RECORDING-SOUNDS.md).
 
 ## Good to know
 
@@ -97,7 +99,9 @@ Then open http://localhost:8642 in Chrome. Press Ctrl+C in Terminal to stop it.
 | `js/progress.js` | Stars, missed words and settings saved on the tablet |
 | `js/content.js` | Reads the word lists |
 | `content/` | Word lists: `unit-03.json`, the shared `letters.json`, and `units.json` |
-| `audio/sounds/` | Your sound recordings go here |
+| `audio/sounds/` | One file per sound (sh.m4a, a.m4a...) |
+| `audio/names/` | Letter names for Trick Words (h.m4a says "aitch") |
+| `tools/sounds/` | How the sound files were made and checked (for Claude, not needed to run the app) |
 | `sw.js`, `manifest.json`, `icons/` | What makes it installable and work offline |
 
 Not affiliated with the reading program the school uses. The word lists are copied

@@ -135,19 +135,19 @@ export function showParent(app, { getContent, reloadContent, goHome, getInstallO
         if (url) chips[i].classList.add('yes');
         else missing.push(`${keys[i]}.mp3`);
       });
-      summary.textContent = `${keys.length - missing.length} of ${keys.length} sounds recorded. Green = your recording. Tap one to hear it.`;
+      summary.textContent = `${keys.length - missing.length} of ${keys.length} sounds have a sound file (green). Tap one to hear it.`;
       missingList.textContent = missing.length
-        ? `Still using the robot voice for: ${missing.join(', ')}`
-        : 'All sounds are recorded. 🎉';
+        ? `No sound file yet, so the keyword is said instead: ${missing.join(', ')}`
+        : '';
     });
 
     return h('section', {},
-      h('h2', {}, 'Sound recordings'),
+      h('h2', {}, 'Sounds'),
       h('div', { class: 'panel' },
         summary,
         h('div', { class: 'chips' }, chips),
         missingList,
-        h('p', { class: 'muted' }, 'Put files in the audio/sounds folder, named like sh.mp3 (or sh.m4a). See RECORDING-SOUNDS.md.'),
+        h('p', { class: 'muted' }, 'The app comes with a computer-made file for every sound. To use your own voice instead, see RECORDING-SOUNDS.md.'),
       ));
   }
 

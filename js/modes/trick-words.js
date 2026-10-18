@@ -4,7 +4,7 @@
 //    Tiles say the letter NAMES (h... a... s...), never sounds, because trick words aren't tapped.
 
 import { h, pickRound, runRound, buildSpeller, shuffle } from '../ui.js';
-import { talk, chime, praise, tryAgain, LETTER_NAMES } from '../speech.js';
+import { talk, chime, praise, tryAgain, playName } from '../speech.js';
 import { trickWords } from '../content.js';
 import { recordResult } from '../progress.js';
 
@@ -47,7 +47,7 @@ async function sayAndSpell(t, word) {
   await t.say(word);
   await t.pause(200);
   for (const letter of word) {
-    await t.say(LETTER_NAMES[letter] || letter, { rate: 0.9 });
+    await t.name(letter);
   }
   await t.pause(200);
   await t.say(word);
@@ -76,7 +76,7 @@ function showWord(game, item, finish) {
       answer: letters,
       bank: makeBank(letters),
       kindOf: (l) => ('aeiou'.includes(l) ? 'vowel' : 'consonant'),
-      onTileTap: (l) => talk().say(LETTER_NAMES[l] || l, { rate: 0.9 }),
+      onTileTap: (l) => playName(l),
       onFull: check,
     });
     const hear = h('button', { class: 'hear', 'aria-label': 'Hear the word', onClick: () => talk().say(word) }, '🔊');

@@ -1,28 +1,26 @@
 // speech.js - everything the app says or hears.
 //
-//   playSound('sh')  plays your recording audio/sounds/sh.mp3 (or sh.m4a).
-//                    If that file isn't there yet, the tablet's built-in voice
-//                    says its best guess at the sound instead.
+//   playSound('sh')  plays the sound file audio/sounds/sh.mp3 (or sh.m4a).
+//                    The app comes with a file for every sound. Your own
+//                    recordings can replace them (see RECORDING-SOUNDS.md).
+//   playName('h')    plays the letter's NAME ("aitch") from audio/names/h.m4a.
 //   say('fish')      the built-in voice reads a word or sentence.
+//
+// Why files for sounds: a tablet's built-in voice can read words, but it can't
+// make a sound on its own. Asked to say "th", it says the letters "T, H".
 //   talk()           for saying several things in a row (see below).
 //   listen()         the microphone listens and returns what it heard.
 //   startRecording() records her voice so she can play it back.
 //   chime('good')    little sound effects made in code (no files needed).
 
-const AUDIO_FOLDER = 'audio/sounds/';
-const AUDIO_TYPES = ['mp3', 'm4a']; // a phone's voice recorder usually makes .m4a, that works too
+const SOUNDS_FOLDER = 'audio/sounds/';
+const NAMES_FOLDER = 'audio/names/';
+// .mp3 is checked first, so your own recording (sh.mp3) wins over the file the app came with (sh.m4a)
+const AUDIO_TYPES = ['mp3', 'm4a'];
 
-// Letter NAMES, spelled so the voice says them clearly (used for trick words).
-export const LETTER_NAMES = {
-  a: 'ay', b: 'bee', c: 'see', d: 'dee', e: 'ee', f: 'eff', g: 'jee', h: 'aitch',
-  i: 'eye', j: 'jay', k: 'kay', l: 'el', m: 'em', n: 'en', o: 'oh', p: 'pee',
-  q: 'cue', r: 'are', s: 'ess', t: 'tee', u: 'you', v: 'vee', w: 'double you',
-  x: 'ex', y: 'why', z: 'zee',
-};
-
-let soundInfo = {};       // 'sh' -> { say: 'shh', keyword: 'ship', ... } from the content files
+let soundInfo = {};       // 'sh' -> { keyword: 'ship', ... } from the content files
 let voiceRate = 0.85;
-const recordings = {};    // 'sh' -> Promise of a playable address, or null if there is no file
+const found = {};         // 'audio/sounds/sh' -> Promise of a playable address, or null if there is no file
 let currentAudio = null;
 let turn = 0;             // goes up every time something new starts talking
 
@@ -58,6 +56,7 @@ export function talk() {
   const stillMyTurn = () => myTurn === turn;
   return {
     sound: (key) => (stillMyTurn() ? soundNow(key) : Promise.resolve()),
+    name: (letter) => (stillMyTurn() ? nameNow(letter) : Promise.resolve()),
     say: (text, options) => (stillMyTurn() ? sayNow(text, options) : Promise.resolve()),
     play: (url) => (stillMyTurn() ? playUrl(url) : Promise.resolve()),
     pause: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
@@ -66,17 +65,19 @@ export function talk() {
 }
 
 export const playSound = (key) => talk().sound(key);
+export const playName = (letter) => talk().name(letter);
 export const say = (text, options) => talk().say(text, options);
 
 // ---------- Recorded sounds ----------
 
-// Looks for audio/sounds/<key>.mp3, then .m4a. Remembers the answer.
-export function findRecording(key) {
-  if (!(key in recordings)) {
-    recordings[key] = (async () => {
+// Looks for <folder><key>.mp3, then .m4a. Remembers the answer.
+function findFile(folder, key) {
+  const id = folder + key;
+  if (!(id in found)) {
+    found[id] = (async () => {
       for (const type of AUDIO_TYPES) {
         try {
-          const response = await fetch(`${AUDIO_FOLDER}${encodeURIComponent(key)}.${type}`);
+          const response = await fetch(`${folder}${encodeURIComponent(key)}.${type}`);
           const kind = response.headers.get('content-type') || '';
           if (response.ok && !kind.includes('text/html')) {
             const blob = await response.blob();
@@ -89,15 +90,25 @@ export function findRecording(key) {
       return null;
     })();
   }
-  return recordings[key];
+  return found[id];
 }
+
+export const findRecording = (key) => findFile(SOUNDS_FOLDER, key);
 
 async function soundNow(key) {
   const url = await findRecording(key);
   if (url) return playUrl(url);
-  // No recording yet: the built-in voice makes its best guess ("shh", "buh"...)
+  // No sound file (for example a new unit's new sound): say its keyword ("thumb").
+  // Never ask the built-in voice to make the sound itself; it reads the letters instead.
   const info = soundInfo[key];
-  return sayNow(info && info.say ? info.say : key, { rate: 0.8 });
+  return sayNow(info && info.keyword ? info.keyword : key);
+}
+
+async function nameNow(letter) {
+  const url = await findFile(NAMES_FOLDER, letter);
+  if (url) return playUrl(url);
+  // No file: a single capital letter is the surest way to get the voice to say its name
+  return sayNow(letter.toUpperCase());
 }
 
 function playUrl(url) {
